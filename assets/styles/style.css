@@ -1,0 +1,107 @@
+@font-face{
+    font-family: 'Rubik-Semibold';
+    src: url('Rubik-SemiBold.ttf');
+    font-weight: bold;
+    font-style: normal;
+
+}
+@font-face{
+    font-family: 'Rubik-Light';
+    src: url('Rubik-Light.ttf');
+    font-weight: bold;
+    font-style: normal;
+
+}
+
+body {
+    background: #212124;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin:0px;
+    overflow: hidden;
+    padding:0px;
+    height: 100vh;
+}
+
+h1 {
+    font-family: "Rubik-Semibold";
+    font-size: 64px;
+    color: #FFF;   
+    text-align: center;
+}
+
+h3 {
+    font-family: "Rubik-Light";
+    font-size: 31px;
+    color: #FFF;
+    text-align: center;
+}
+
+h4 {
+    font-family: "Rubik-Light";
+    font-size: 18px;
+    color: #BEBEBF;
+    text-align: center;
+}
+
+a {
+    text-decoration: none;
+}
+
+#cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 22px;  
+    flex-shrink: 0;
+}
+
+#cards:hover > .card::after {
+    opacity: 1;
+}
+
+.card {
+    border-radius: 9px;
+    border: 2px solid rgba(92, 92, 96, 0.50);;
+    padding: 30px;
+    padding-bottom:45px;
+    background: rgba(41, 41, 47, 0.1);
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    height: 280px;
+    width: 260px;
+    cursor: pointer;
+}
+
+.card:hover{
+    /* background-image: linear-gradient(to bottom, ); */
+    border: 2px solid rgba(92, 92, 96, 0.95);
+    background: rgba(41, 41, 47, 0.75);
+}
+
+.card-image {
+    height: 75%;
+    width: auto;
+    display: flex;
+    align-items : center;
+    overflow: hidden;
+    border: #FFF;
+}
+
+.card-title {
+    line-height: 0.3em;
+}
+
+img, svg {
+    max-width:75%;
+    max-height:75%;
+    display: block;
+    overflow: hidden;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+svg {
+    fill: #FFF;
+}
