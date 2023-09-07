@@ -16,61 +16,75 @@
 body {
     background: #212124;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     margin:0px;
     overflow: hidden;
     padding:0px;
-    height: 100vh;
+    min-height: 100vh;
+    margin-bottom: 10VH;
 }
 
 h1 {
-    font-family: "Rubik-Semibold";
+    font-family: "Rubik-Light";
     font-size: 64px;
     color: #FFF;   
     text-align: center;
 }
 
-h3 {
+.content {
+    max-width: 900px;
+}
+
+.card-title > h3 {
     font-family: "Rubik-Light";
     font-size: 31px;
     color: #FFF;
     text-align: center;
+    margin: 0px;
 }
 
-h4 {
+.card-title > h4  {
     font-family: "Rubik-Light";
-    font-size: 18px;
+    font-size: 16px;
+    /* height: 1.1em; */
     color: #BEBEBF;
     text-align: center;
+    margin: 0px;
 }
 
-a {
+a { 
+
     text-decoration: none;
 }
 
 #cards {
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr);
+    
+    margin: 0 auto;
+    gap: 22px;
+}
+
+a {
     display: flex;
-    flex-wrap: wrap;
-    gap: 22px;  
-    flex-shrink: 0;
+    justify-content: center;
+    align-items: center;
 }
-
-#cards:hover > .card::after {
-    opacity: 1;
-}
-
 .card {
     border-radius: 9px;
     border: 2px solid rgba(92, 92, 96, 0.50);;
-    padding: 30px;
-    padding-bottom:45px;
+
     background: rgba(41, 41, 47, 0.1);
     justify-content: center;
     display: flex;
     flex-direction: column;
-    height: 280px;
-    width: 260px;
+    height: 320px;
+    /* min-width: calc(100% - 60px); */
+    /* width: calc(100% - 60px); */
+    width: 100%;
     cursor: pointer;
 }
 
@@ -81,7 +95,7 @@ a {
 }
 
 .card-image {
-    height: 75%;
+    height: 70%;
     width: auto;
     display: flex;
     align-items : center;
@@ -89,8 +103,9 @@ a {
     border: #FFF;
 }
 
-.card-title {
-    line-height: 0.3em;
+.card-content{
+    height: 100%;
+    padding: 24px 12px 24px 12px;
 }
 
 img, svg {
@@ -104,4 +119,74 @@ img, svg {
 
 svg {
     fill: #FFF;
+}
+
+@media only screen and (max-width: 1000px){
+    body {
+        overflow-y: scroll;
+    }
+    .card-title > h4 {
+        font-size: 14px;
+    }
+}
+
+@media only screen and (max-width: 700px){
+    body {
+        height: 100vh;
+        overflow-y: hidden;
+    }
+    #cards {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+    }
+    .card {
+        height: 10vh;
+        width: 300px;
+        flex-direction: row;
+        padding: 16px;
+        justify-content: left;
+        /* padding-bottom:5px; */
+    }
+
+    .card-content {
+        display: flex;
+        padding: 0px;
+    }
+
+    h1 {
+        font-size: 48px;
+    }
+    .card-title > h3 {
+        text-align: left;
+        font-size: 32px;
+        /* margin-bottom: 0; */
+        /* line-height: 1em; */
+    }
+    .card-title > h4 {
+        text-align: left;
+        font-size: 15px;
+        /* margin-top: 0; */
+        /* margin-top: 0; */
+
+    }
+    .card-image{
+        width: 60px;
+        height: 100%;
+        align-items: left;
+        /* padding-right: 10px; */
+        margin-right: 14px;
+        margin-left: 10px;
+    }
+    .card-title{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+    img, svg {
+        max-width:100%;
+        max-height: 100%;
+    }
 }
