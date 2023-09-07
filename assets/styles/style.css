@@ -132,8 +132,9 @@ svg {
 
 @media only screen and (max-width: 750px){
     body {
-        height: 100vh;
-        overflow-y: hidden;
+        height: 75vh;
+        margin: 0;
+        /* overflow-y: hidden; */
     }
     #cards {
         display: flex;
