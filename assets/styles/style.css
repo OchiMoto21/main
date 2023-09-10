@@ -35,6 +35,10 @@ h1 {
 
 .content {
     max-width: 900px;
+    /* min-width: 50vh; */
+    /* width: 900px; */
+    width: calc(100% - 44px);
+    /* flex-grow: 1; */
 }
 
 .card-title > h3 {
@@ -66,8 +70,8 @@ a {
     display: grid;
     grid-auto-flow: column;
     grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr);
-    
-    margin: 0 22px 0 22px;
+    width: 100%;
+    /* margin: 0 22px 0 22px; */
     gap: 22px;
 }
 
@@ -86,11 +90,12 @@ a {
     min-width: 10vw;
     /* width: 100vw; */
     border-radius: 9px;
+    position:absolute;
     /* box-sizing: border-box; */
     background-color: #252529;
     flex-grow: 1;
     inset: 1px;
-    margin: 1px;
+    /* margin: 1px; */
     z-index: 1;
     /* position: absolute; */
     /* inset: 1px; */
@@ -120,7 +125,7 @@ a {
     transition: opacity 500ms;
 }
 .card::before {
-    background: radial-gradient(200px circle at var(--mouse-x) var(--mouse-y), rgba(255, 255, 255, 0.30) 0%, rgba(217, 217, 217, 0.00) 100%);
+    background: radial-gradient(200px circle at var(--mouse-x) var(--mouse-y), rgba(255, 255, 255, 0.50) 0%, rgba(217, 217, 217, 0.00) 100%);
     z-index: 0;
 }
 
@@ -134,6 +139,7 @@ a {
     /* opacity: 0.50; */
     height: 70%;
     width: auto;
+    min-width: 0;
     display: flex;
     align-items : center;
     overflow: hidden;
@@ -145,6 +151,7 @@ a {
 img, svg {
     max-width:75%;
     max-height:75%;
+    width: min-content;
     display: block;
     overflow: hidden;
     margin-left: auto;
@@ -168,12 +175,16 @@ svg {
     body {
         height: 75vh;
         margin: 0;
-        /* overflow-y: hidden; */
+        overflow-y: scroll;
+    }
+    .content {
+        width: calc(100%-10px);
     }
     #cards {
         display: flex;
         flex-direction: column;
         gap: 16px;
+        /* min-width: 380px; */
     }
     .card {
         height: 15vh;
@@ -188,8 +199,12 @@ svg {
         display: flex;
         /* flex-grow: 1; */
         flex-shrink: 0;
-        margin: 16px;
+        /* margin: 16px; */
         padding: 0px;
+    }
+
+    .card-content > *{
+        flex: 0 0 auto;
     }
 
     h1 {
@@ -212,6 +227,78 @@ svg {
         width: 60px;
         height: 100%;
         align-items: left;
+        overflow-x: hidden;
+        /* flex-shrink: 1; */
+        /* padding-right: 10px; */
+        margin-right: 14px;
+        margin-left: 24px;
+    }
+    .card-title{
+        display: flex;
+        /* flex-grow: 1; */
+        flex-direction: column;
+        justify-content: center;
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+    img, svg {
+        max-width:100%;
+        max-height: 100%;
+    }
+}
+@media only screen and (max-width: 360px){
+    body {
+        height: 75vh;
+        margin: 0;
+        /* overflow-y: hidden; */
+    }
+    .content {
+        width: calc(100%-10px);
+    }
+    #cards {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        /* min-width: 380px; */
+    }
+    .card {
+        height: 15vh;
+        width: 340px;
+        flex-direction: row;
+        padding: 1px;
+        justify-content: left;
+        /* padding-bottom:5px; */
+    }
+
+    .card-content {
+        display: flex;
+        /* flex-grow: 1; */
+        flex-shrink: 0;
+        /* margin: 16px; */
+        padding: 0px;
+    }
+
+    h1 {
+        font-size: 48px;
+    }
+    .card-title > h3 {
+        text-align: left;
+        font-size: 20px;
+        /* margin-bottom: 0; */
+        /* line-height: 1em; */
+    }
+    .card-title > h4 {
+        text-align: left;
+        font-size: 11px;
+        /* margin-top: 0; */
+        /* margin-top: 0; */
+
+    }
+    .card-image{
+        width: 60px;
+        height: 100%;
+        align-items: left;
+        overflow-x: hidden;
         /* padding-right: 10px; */
         margin-right: 14px;
         margin-left: 24px;
